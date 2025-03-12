@@ -43,9 +43,25 @@ if st.button("✨ Predecir Humedad en Casa"):
     if humedad_predicha < 40:
         st.error(f"⚠️ La humedad en casa es baja: {humedad_predicha:.2f}%. Puede causar problemas respiratorios y favorecer virus y bacterias.")
         st.write("💡 **Consejos:** Usa humidificadores, coloca plantas y evita calefacción excesiva.")
+        
+        # Mostrar enlace a venta de plantas
+        st.subheader("🌿 Tiendas donde puedes comprar plantas para mejorar la humedad:")
+        st.markdown("""
+        - [Amazon: Plantas para el hogar](https://www.amazon.com/s?k=plantas+para+el+hogar)
+        - [Mercado Libre: Plantas de interior](https://www.mercadolibre.com.ar/plantas-de-interior)
+        """)
+
     elif humedad_predicha > 50:
         st.warning(f"⚠️ La humedad en casa es alta: {humedad_predicha:.2f}%. Puede favorecer hongos y alergias.")
         st.write("💡 **Consejos:** Ventila tu casa, usa deshumidificadores y revisa filtraciones.")
+
+ # Mostrar enlace a compra de deshumidificadores
+        st.subheader("🛒 Tiendas donde puedes comprar deshumidificadores:")
+        st.markdown("""
+        - [Amazon: Deshumidificadores](https://www.amazon.com/s?k=deshumidificadores)
+        - [Mercado Libre: Deshumidificadores](https://www.mercadolibre.com.ar/deshumidificadores)
+        """)
+
     else:
         st.success(f"✅ La humedad en casa es óptima: {humedad_predicha:.2f}%.")
         st.write("🌿 Tu ambiente es saludable, ¡sigue así!")
