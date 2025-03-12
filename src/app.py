@@ -5,10 +5,12 @@ import numpy as np
 import os
 import matplotlib.pyplot as plt
 import seaborn as sns
+from joblib import load
 
-# Cargar el modelo
-ruta_modelo = os.path.join(os.path.dirname(__file__), "../models/LinearRegression_default_42.sav")
-model = load(open(ruta_modelo, "rb"))
+
+# Cargar el modelo comprimido
+ruta_modelo = os.path.join(os.path.dirname(__file__), "../models/RandomForestRegressor_default_42_compressed.joblib")
+model = load(ruta_modelo)
 
 # Configuración de página
 st.set_page_config(page_title="Predicción de Humedad en Casa", page_icon="🌡️", layout="wide")
