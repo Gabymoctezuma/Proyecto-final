@@ -9,8 +9,13 @@ from joblib import load
 
 # 🔹 `st.set_page_config()` debe ser la primera instrucción de Streamlit
 st.set_page_config(page_title="Mi App en Render 🚀", page_icon="🌡️", layout="wide")
+import os
+import streamlit as st
 
-PORT = int(os.getenv("PORT", 8501))  # Usar el puerto de Render si está disponible
+PORT = os.getenv("PORT", "8501")  # Usa el puerto de Render si está disponible
+os.environ["STREAMLIT_SERVER_PORT"] = PORT
+os.environ["STREAMLIT_SERVER_ADDRESS"] = "0.0.0.0"
+
 
 # Cargar el modelo comprimido
 ruta_modelo = os.path.join(os.path.dirname(__file__), "../models/RandomForestRegressor_default_42_compressed.joblib")
