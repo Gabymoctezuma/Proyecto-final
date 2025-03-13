@@ -37,7 +37,7 @@ with col1:
 with col2:
     
     Vel_viento = st.slider("Velocidad del viento (m/s)", 0.0, 30.0, 5.0, 0.1)
- st.markdown("[🔍 Consultar velocidad del viento en Google](https://www.google.com/search?q=velocidad+del+viento+actual)")
+    st.markdown("[🔍 Consultar velocidad del viento en Google](https://www.google.com/search?q=velocidad+del+viento+actual)")
 
     Punto_rocio = st.slider("Punto de rocío (°C)", -10.0, 30.0, 10.0, 0.1)
     st.markdown("[🔍 Consultar punto de rocío en Google](https://www.google.com/search?q=punto+de+rocío+actual)")
