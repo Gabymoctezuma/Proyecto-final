@@ -25,14 +25,26 @@ col1, col2 = st.columns(2)
 
 with col1:
     Hum_exterior = st.slider("Humedad exterior (%)", 10.0, 100.0, 50.0, 1.0)
+    st.markdown("[🔍 Consultar humedad exterior en Google](https://www.google.com/search?q=humedad+exterior+actual)")
+
     Temp_exterior = st.slider("Temperatura exterior (°C)", -10.0, 40.0, 20.0, 0.1)
+    st.markdown("[🔍 Consultar temperatura exterior en Google](https://www.google.com/search?q=temperatura+exterior+actual)")
+
     Presion_exterior = st.slider("Presión exterior (hPa)", 900.0, 1100.0, 1013.0, 1.0)
+    st.markdown("[🔍 Consultar presión atmosférica en Google](https://www.google.com/search?q=presion+atmosferica+actual)")
+
 
 with col2:
     
     Vel_viento = st.slider("Velocidad del viento (m/s)", 0.0, 30.0, 5.0, 0.1)
+ st.markdown("[🔍 Consultar velocidad del viento en Google](https://www.google.com/search?q=velocidad+del+viento+actual)")
+
     Punto_rocio = st.slider("Punto de rocío (°C)", -10.0, 30.0, 10.0, 0.1)
+    st.markdown("[🔍 Consultar punto de rocío en Google](https://www.google.com/search?q=punto+de+rocío+actual)")
+
     Temp_casa = st.slider("Temp_casa: Temperatura casa (°C)", -10.0, 40.0, 20.0, 0.1)
+    st.caption("🏠 **Cómo medir:** Usa un termómetro ambiental para conocer la temperatura dentro de casa.")
+
 
 # Botón de predicción
 if st.button("✨ Predecir Humedad en Casa"):
