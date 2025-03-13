@@ -12,9 +12,6 @@ st.set_page_config(page_title="Mi App en Render 🚀", page_icon="🌡️", layo
 
 PORT = int(os.getenv("PORT", 8501))  # Usar el puerto de Render si está disponible
 
-st.title("¡Hola desde Streamlit en Render! 🎈")
-st.write(f"La aplicación está corriendo en el puerto: {PORT}")
-
 # Cargar el modelo comprimido
 ruta_modelo = os.path.join(os.path.dirname(__file__), "../models/RandomForestRegressor_default_42_compressed.joblib")
 model = load(ruta_modelo)
