@@ -25,7 +25,7 @@ col1, col2 = st.columns(2)
 
 with col1:
     Hum_exterior = st.slider("Humedad exterior (%)", 10.0, 100.0, 50.0, 1.0)
-    Temp_exterior = st.slider("Temp_exterior: Temperatura exterior (°C)", -10.0, 40.0, 20.0, 0.1)
+    Temp_exterior = st.slider("Temperatura exterior (°C)", -10.0, 40.0, 20.0, 0.1)
     Presion_exterior = st.slider("Presión exterior (hPa)", 900.0, 1100.0, 1013.0, 1.0)
 
 with col2:
