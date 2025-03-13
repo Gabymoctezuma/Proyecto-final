@@ -13,10 +13,10 @@ ruta_modelo = os.path.join(os.path.dirname(__file__), "../models/RandomForestReg
 model = load(ruta_modelo)
 
 # Configuración de página
-st.set_page_config(page_title="Predicción de Humedad en Casa", page_icon="🌡️", layout="wide")
+st.set_page_config(page_title="sa", page_icon="🌡️", layout="wide")
 
 # Encabezado
-st.title("🌡️ Aplicación de Predicción de Humedad en Casa")
+st.title("🌡️ HomeHumidity IA")
 st.write("Esta aplicación predice la humedad de tu casa y te da recomendaciones para mejorar la calidad del aire.")
 
 # Entrada de datos con sliders
@@ -25,6 +25,7 @@ col1, col2 = st.columns(2)
 
 with col1:
     Hum_exterior = st.slider("Humedad exterior (%)", 10.0, 100.0, 50.0, 1.0)
+    st.markdown("<h3 style='font-size: 18px;'>🔍 Consultar humedad exterior en Google</h3>", unsafe_allow_html=True)
     st.markdown("[🔍 Consultar humedad exterior en Google](https://www.google.com/search?q=humedad+exterior+actual)")
 
     Temp_exterior = st.slider("Temperatura exterior (°C)", -10.0, 40.0, 20.0, 0.1)
@@ -42,7 +43,7 @@ with col2:
     Punto_rocio = st.slider("Punto de rocío (°C)", -10.0, 30.0, 10.0, 0.1)
     st.markdown("[🔍 Consultar punto de rocío en Google](https://www.google.com/search?q=punto+de+rocío+actual)")
 
-    Temp_casa = st.slider("Temp_casa: Temperatura casa (°C)", -10.0, 40.0, 20.0, 0.1)
+    Temp_casa = st.slider("Temperatura casa (°C)", -10.0, 40.0, 20.0, 0.1)
     st.caption("🏠 **Cómo medir:** Usa un termómetro ambiental para conocer la temperatura dentro de casa.")
 
 
@@ -53,7 +54,7 @@ if st.button("✨ Predecir Humedad en Casa"):
     
     # Mostrar resultado con colores
     if humedad_predicha < 40:
-        st.error(f"⚠️ La humedad en casa es baja: {humedad_predicha:.2f}%. Puede causar problemas respiratorios y favorecer virus y bacterias.")
+        st.error(f"🟥⬇️ La humedad en casa es baja: {humedad_predicha:.2f}%. Puede causar problemas respiratorios y favorecer virus y bacterias.")
         st.write("💡 **Consejos:** Usa humidificadores, coloca plantas y evita calefacción excesiva.")
         
         # Mostrar enlace a venta de plantas
@@ -64,7 +65,7 @@ if st.button("✨ Predecir Humedad en Casa"):
         """)
 
     elif humedad_predicha > 50:
-        st.warning(f"⚠️ La humedad en casa es alta: {humedad_predicha:.2f}%. Puede favorecer hongos y alergias.")
+        st.warning(f"🟥⬆️ La humedad en casa es alta: {humedad_predicha:.2f}%. Puede favorecer hongos y alergias.")
         st.write("💡 **Consejos:** Ventila tu casa, usa deshumidificadores y revisa filtraciones.")
 
  # Mostrar enlace a compra de deshumidificadores
@@ -75,7 +76,7 @@ if st.button("✨ Predecir Humedad en Casa"):
         """)
 
     else:
-        st.success(f"✅ La humedad en casa es óptima: {humedad_predicha:.2f}%.")
+        st.success(f"😃 La humedad en casa es óptima: {humedad_predicha:.2f}%.")
         st.write("🌿 Tu ambiente es saludable, ¡sigue así!")
     
     # # Graficar los valores de entrada
