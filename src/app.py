@@ -46,7 +46,7 @@ if st.button("✨ Predecir Humedad en Casa"):
         
         # Mostrar enlace a venta de plantas
         st.subheader("🌿 Tiendas donde puedes comprar plantas para mejorar la humedad:")
-        st.markdown(""""""
+        st.markdown("""""
         - [Amazon: Plantas para el hogar](https://www.amazon.com/s?k=plantas+para+el+hogar)
         - [Mercado Libre: Plantas de interior](https://www.mercadolibre.com.ar/plantas-de-interior)
         """)
@@ -74,5 +74,3 @@ if st.button("✨ Predecir Humedad en Casa"):
     ax.set_ylabel("Valor")
     ax.set_title("Valores de Entrada")
     st.pyplot(fig)
-
-
