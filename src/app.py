@@ -16,7 +16,7 @@ model = load(ruta_modelo)
 st.set_page_config(page_title="sa", page_icon="🌡️", layout="wide")
 
 # Encabezado
-st.title("🌡️ HomeHumidity IA")
+st.title("🫁 HomeHumidity IA")
 st.write("Esta aplicación predice la humedad de tu casa y te da recomendaciones para mejorar la calidad del aire.")
 
 # Entrada de datos con sliders
@@ -25,7 +25,6 @@ col1, col2 = st.columns(2)
 
 with col1:
     Hum_exterior = st.slider("Humedad exterior (%)", 10.0, 100.0, 50.0, 1.0)
-    st.markdown("<h3 style='font-size: 18px;'>🔍 Consultar humedad exterior en Google</h3>", unsafe_allow_html=True)
     st.markdown("[🔍 Consultar humedad exterior en Google](https://www.google.com/search?q=humedad+exterior+actual)")
 
     Temp_exterior = st.slider("Temperatura exterior (°C)", -10.0, 40.0, 20.0, 0.1)
