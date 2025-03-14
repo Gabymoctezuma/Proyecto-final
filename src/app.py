@@ -1,20 +1,28 @@
 import streamlit as st
 import requests
+from pickle import load
 import numpy as np
 import os
+import matplotlib.pyplot as plt
 import seaborn as sns
 from joblib import load
 
-# Configurar Streamlit
-st.set_page_config(page_title="HomeHumidity IA")
 
-# Definir el puerto de Render o usar 8501 por defecto
-port = int(os.environ.get("PORT", "8501"))
+
+# 🔹 `st.set_page_config()` debe ser la primera instrucción de Streamlit
+st.set_page_config(page_title="Mi App en Render 🚀", page_icon="🌡️", layout="wide")
+
+
+# Asegurar que PORT no esté vacío o inválido
+port = os.environ.get("PORT", "8501")  # Valor por defecto 8501 si PORT está vacío
+
+try:
+    port = int(port)  # Convertir a entero
+except ValueError:
+    port = 8501  # Si hay error, usar 8501
 
 if __name__ == "__main__":
     os.system(f"streamlit run app.py --server.port={port} --server.address=0.0.0.0")
-
-
 
 # Cargar el modelo comprimido
 ruta_modelo = os.path.join(os.path.dirname(__file__), "../models/RandomForestRegressor_default_42_compressed.joblib")
@@ -63,6 +71,17 @@ if st.button("✨ Predecir Humedad en Casa"):
         st.markdown("""
         - [Amazon: Plantas para el hogar](https://www.amazon.com/s?k=plantas+para+el+hogar)
         - [Mercado Libre: Plantas de interior](https://www.mercadolibre.com.ar/plantas-de-interior)
+        """)
+
+    elif humedad_predicha > 50:
+        st.warning(f"🟥⬆️ La humedad en casa es alta: {humedad_predicha:.2f}%. Puede favorecer hongos y alergias.")
+        st.write("💡 **Consejos:** Ventila tu casa, usa deshumidificadores y revisa filtraciones.")
+
+        # Mostrar enlace a compra de deshumidificadores
+        st.subheader("🛒 Tiendas donde puedes comprar deshumidificadores:")
+        st.markdown("""
+        - [Amazon: Deshumidificadores](https://www.amazon.com/s?k=deshumidificadores)
+        - [Mercado Libre: Deshumidificadores](https://www.mercadolibre.com.ar/deshumidificadores)
         """)
 
     else:
