@@ -7,10 +7,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from joblib import load
 
-# 🔹 `st.set_page_config()` debe ser la primera instrucción de Streamlit
-st.set_page_config(page_title="Mi App en Render 🚀", page_icon="🌡️", layout="wide")
-
-
 # Cargar el modelo comprimido
 ruta_modelo = os.path.join(os.path.dirname(__file__), "../models/RandomForestRegressor_default_42_compressed.joblib")
 model = load(ruta_modelo)
@@ -57,7 +53,7 @@ if st.button("✨ Predecir Humedad en Casa"):
         st.subheader("🌿 Tiendas donde puedes comprar plantas para mejorar la humedad:")
         st.markdown("""
         - [Amazon: Plantas para el hogar](https://www.amazon.com/s?k=plantas+para+el+hogar)
-        - [Mercado Libre: Plantas de interior](https://www.mercadolibre.com.ar/plantas-de-in
+        - [Mercado Libre: Plantas de interior](https://www.mercadolibre.com.ar/plantas-de-interior)
         """)
 
     else:
