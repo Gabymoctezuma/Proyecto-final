@@ -1,11 +1,10 @@
 import streamlit as st
 import requests
-from pickle import load
 import numpy as np
 import os
-import matplotlib.pyplot as plt
 import seaborn as sns
 from joblib import load
+
 
 # Cargar el modelo comprimido
 ruta_modelo = os.path.join(os.path.dirname(__file__), "../models/RandomForestRegressor_default_42_compressed.joblib")
@@ -59,3 +58,8 @@ if st.button("✨ Predecir Humedad en Casa"):
     else:
         st.success(f"😃 La humedad en casa es óptima: {humedad_predicha:.2f}%.")
         st.write("🌿 Tu ambiente es saludable, ¡sigue así!")
+
+    
+    if __name__ == "__main__":
+        port = int(os.environ.get("PORT", 8501))  # Usar el puerto que Render asigna
+    os.system(f"streamlit run app.py --server.port={port} --server.address=0.0.0.0")
