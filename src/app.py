@@ -5,6 +5,16 @@ import os
 import seaborn as sns
 from joblib import load
 
+# Configurar Streamlit
+st.set_page_config(page_title="HomeHumidity IA")
+
+# Definir el puerto de Render o usar 8501 por defecto
+port = int(os.environ.get("PORT", "8501"))
+
+if __name__ == "__main__":
+    os.system(f"streamlit run app.py --server.port={port} --server.address=0.0.0.0")
+
+
 
 # Cargar el modelo comprimido
 ruta_modelo = os.path.join(os.path.dirname(__file__), "../models/RandomForestRegressor_default_42_compressed.joblib")
@@ -59,7 +69,3 @@ if st.button("✨ Predecir Humedad en Casa"):
         st.success(f"😃 La humedad en casa es óptima: {humedad_predicha:.2f}%.")
         st.write("🌿 Tu ambiente es saludable, ¡sigue así!")
 
-    
-    if __name__ == "__main__":
-        port = int(os.environ.get("PORT", 8501))  # Usar el puerto que Render asigna
-    os.system(f"streamlit run app.py --server.port={port} --server.address=0.0.0.0")
