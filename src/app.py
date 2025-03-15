@@ -10,7 +10,7 @@ from joblib import load
 
 # Cargar el modelo comprimido
 
-model = load("../models/XGBRegressor_default_42.sav")
+model = load("../models/DecisionTreeRegressor_default_42.sav")
 
 # Encabezado
 st.title("🫁 HomeHumidity IA")
