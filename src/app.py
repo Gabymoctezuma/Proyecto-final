@@ -9,8 +9,8 @@ from joblib import load
 
 
 # Cargar el modelo comprimido
-ruta_modelo = os.path.join(os.path.dirname(__file__), "../models/RandomForestRegressor_default_42_compressed.joblib")
-model = load(ruta_modelo)
+
+model = load("../models/RandomForestRegressor_default_42_compressed.joblib")
 
 # Encabezado
 st.title("🫁 HomeHumidity IA")
