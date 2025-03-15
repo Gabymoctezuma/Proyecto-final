@@ -8,22 +8,6 @@ import seaborn as sns
 from joblib import load
 
 
-
-# 🔹 `st.set_page_config()` debe ser la primera instrucción de Streamlit
-st.set_page_config(page_title="Mi App en Render 🚀", page_icon="🌡️", layout="wide")
-
-
-# Asegurar que PORT no esté vacío o inválido
-port = os.environ.get("PORT", "8501")  # Valor por defecto 8501 si PORT está vacío
-
-try:
-    port = int(port)  # Convertir a entero
-except ValueError:
-    port = 8501  # Si hay error, usar 8501
-
-if __name__ == "__main__":
-    os.system(f"streamlit run app.py --server.port={port} --server.address=0.0.0.0")
-
 # Cargar el modelo comprimido
 ruta_modelo = os.path.join(os.path.dirname(__file__), "../models/RandomForestRegressor_default_42_compressed.joblib")
 model = load(ruta_modelo)
